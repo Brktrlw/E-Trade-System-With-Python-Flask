@@ -54,7 +54,7 @@
 
 `BrktrLawliet`,
 `brktrl@protonmail.ch`
-`E Trade System`
+`E Trade Syste`
 
 
 ### Ne-İle-Geliştirildi
@@ -65,9 +65,6 @@
 * [MySQL](https://www.mysql.com)
 
 ## Başlangıç
-
-Kurulumda Windows işletim sistemleri için sadece setup dosyasını indirip kurmanız yeterli olacaktır.
-
 
 ## Kullanım
 
