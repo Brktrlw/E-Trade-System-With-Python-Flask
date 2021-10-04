@@ -4,21 +4,21 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/Brktrlw/Word-Of-World">
+  <a href="https://github.com/Brktrlw/E-Trade-System-With-Python-Flask">
     <img src="/images/icon.ico" alt="Logo" width="140" height="140">
   </a>
 
-  <h3 align="center">Word Of World v2.2</h3>
+  <h3 align="center">Python Flask ile E Ticaret Sistemi</h3>
 
   <p align="center">
-    İngilizce Kelime Uygulaması
+    E Trade System
     <br />
     <br />
     <p align="center"><address>
       <div align="center">
     <a href="mailto:brktrl@protonmail.ch">Hata Bildir</a>
     <br>
-    <!--<a href="http://www.berkay.rf.gd/" target="_blank">Web Sitesi</a>-->
+    <a href="http://www.berkay.rf.gd/" target="_blank">Web Sitesi</a>
     </div>
     </address>
     </p>
@@ -52,21 +52,20 @@
 
 ## Program-Hakkında
 
-**WoW, bilgisayar başında uzun vakit geçirirken bir yandan ingilizce kelimeleri öğrenmenizi sağlayan bir uygulamadır.Programda bir çok farklı opsiyon bulunup seçeceğiniz koşullara göre size belirli dakikalarda rastgele kelimeleri sorup bilinçaltınızda öğrenmenizi sağlar.**
+**Klasik bir e ticaret sisteminde temel olan tüm opsiyonları Python'un flask kütüphanesi ile geliştirilmiş olup sistemlere özgü bir şekilde kullanılması amaçlanmıştır.Sadece bir veritabanına bağlı kalmayıp tek kod değişikliği ile tüm veritabanlarına geçiş yapılabilir.**
 
 
 `BrktrLawliet`,
 `brktrl@protonmail.ch`
 `Word Of World`
-<video width="320" height="240" controls>
-  <source src="https://www.youtube.com/watch?v=9j9Dna0iwNc" type="video/mp4">
-</video>
 
 
 ### Ne-İle-Geliştirildi
 
-* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+* [Python](https://www.python.org)
 * [SQLite](https://www.sqlite.org/index.html)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [MySQL](https://www.mysql.com)
 
 ## Başlangıç
 
@@ -89,10 +88,10 @@ Kurulumda Windows işletim sistemleri için sadece setup dosyasını indirip kur
 
 ## Kullanım
 
-Kurma işlemini gerçekleştirdikten sonra soldaki tüm sekmelerin içerisinde yardım menülerini okuyup işlemlerinizi yapabilirsiniz.Henüz geliştirme aşamasında olduğu için bug'ları bulunabilir.Lütfen bunları bana bildiriniz.
+Main.py dosyasını çalıştırıp local ortamda test edebilirsiniz.
 
 ## Desteklediği-İşletim-Sistemleri
-* Windows
+* Tüm platformlar
 
 ## Görseller
 Programın arayüzünden örnek görseller.
@@ -111,7 +110,7 @@ Bu yazılım GNU GENERAL PUBLIC Lisansı ile korunmaktadır. Daha fazla bilgi i�
 
 E-Mail Adresi:E-Mail - brktrl@protonmail.ch
 
-Proje Linki: [https://github.com/Brktrlw/Word-Of-World](https://github.com/Brktrlw/Word-Of-World)<br>
+Proje Linki: [https://github.com/Brktrlw/E-Trade-System-With-Python-Flask](https://github.com/Brktrlw/E-Trade-System-With-Python-Flask)<br>
 Web Site Linki: [http://www.berkay.rf.gd/](http://www.berkay.rf.gd/)
 
 
