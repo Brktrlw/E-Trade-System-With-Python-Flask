@@ -76,10 +76,10 @@ Main.py dosyasını çalıştırıp local ortamda test edebilirsiniz.
 ## Görseller
 Programın arayüzünden örnek görseller.
 <br>
-<img src="images/Untitled.PNG"></img><br>
-<img src="images/Untitled2.PNG"></img><br>
-<img src="images/Untitled3.PNG"></img><br>
-<img src="images/Untitled4.PNG"></img><br>
+<img src="images/Untitled.png"></img><br>
+<img src="images/Untitled2.png"></img><br>
+<img src="images/Untitled3.png"></img><br>
+<img src="images/Untitled4.png"></img><br>
 ## lisans
 Bu yazılım GNU GENERAL PUBLIC Lisansı ile korunmaktadır. Daha fazla bilgi için `LICENSE` dosyasını okuyunuz.
 <br>Copyright (c) 2021 
