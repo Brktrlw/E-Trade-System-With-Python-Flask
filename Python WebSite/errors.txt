@@ -191,3 +191,8 @@ no such table: CommentDisLikes 2021-09-30 18:09:48.326670
 no such table: Commentdislikes 2021-09-30 18:09:48.344652
 no such table: CommentDisLikes 2021-09-30 18:10:07.169621
 no such table: Commentdislikes 2021-09-30 18:10:07.182468
+no such column: addComment 2021-10-04 18:51:46.367607
+no such column: addComment 2021-10-04 18:51:46.375586
+no such column: addComment 2021-10-04 18:52:06.038073
+no such column: addComment 2021-10-04 18:52:06.046051
+no such column: desc 2021-10-04 19:24:42.095787

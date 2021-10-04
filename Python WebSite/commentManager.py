@@ -35,3 +35,7 @@ class CommentManager():
     def getCommentsByProductId(productId):
         comments = BaseDatabaseManager.databaseType.getCommentsByProductId(productId)
         return comments
+
+    @staticmethod
+    def addCommentByProductIdAndCustomerId(productId,customerId,commentText):
+        BaseDatabaseManager.databaseType.addCommentByProductIdAndCustomerId(productId,customerId,commentText)

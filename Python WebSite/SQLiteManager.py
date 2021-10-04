@@ -2,7 +2,7 @@ import sqlite3
 from fileErrorLogger import FileErrorLogger
 from DatabaseLogger import DatabaseLoggers
 from baseDatabaseManager import BaseDatabaseManager
-
+from datetime import datetime
 class SQLiteDataBaseManager(BaseDatabaseManager):
 
     @staticmethod
@@ -18,7 +18,27 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
             FileErrorLogger.FileLogger(e)
         finally:
             connection.close()
+    @staticmethod
+    def addCommentByProductIdAndCustomerId(productId,customerId,commentText):
+        try:
+            connection = sqlite3.connect("database.db")
+            cursor = connection.cursor()
 
+            year = datetime.now().year
+            month = datetime.now().month
+            day = datetime.now().day
+            hour = datetime.now().hour
+            minute = datetime.now().minute
+
+            date = str(day) + "/" + str(month) + "/" + str(year) + "-" + str(hour) + ":" + str(minute)
+            cursor.execute(f"INSERT INTO ProductComment ('CustomerId','ProductId','Commenttext','commentdate','commentlike','commentdislike') "
+                           f"VALUES ('{customerId}','{productId}','{commentText}','{date}','0','0')")
+            connection.commit()
+        except Exception as e:
+            DatabaseLoggers.databaseLogger(e)
+            FileErrorLogger.FileLogger(e)
+        finally:
+            connection.close()
     # Müşterinin kullanıcı adından müşteri Id'sini bulduğumuz method
     @staticmethod
     def findCustomerIdFromCustomerUserName(customerUserName):
@@ -256,7 +276,7 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
         try:
             connection=sqlite3.connect("database.db")
             cursor=connection.cursor()
-            cursor.execute(f"Select CommentId,CustomerUserName,CommentText,CommentDate,CommentLike,CommentDislike from ProductComment INNER JOIN Customers ON ProductComment.CustomerId=Customers.CustomerId where ProductId={productId}")
+            cursor.execute(f"Select CommentId,CustomerUserName,CommentText,CommentDate,CommentLike,CommentDislike from ProductComment INNER JOIN Customers ON ProductComment.CustomerId=Customers.CustomerId where ProductId={productId} order by CommentDate desc")
             comments=cursor.fetchall()
             return comments;
         except Exception as e:

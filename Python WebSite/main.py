@@ -320,8 +320,16 @@ def getOrderDetailsPage(id):
     return render_template("orderdetails.html",username=session["username"])
 
 
-
-
+@app.route("/addComment",methods=["POST"])
+def addCommentByProductId():
+    customerId = BaseDatabaseManager.findCustomerIdFromCustomerUserName(session["username"])
+    product_id = request.form.get('product_id')
+    text_message= request.form.get("text_message")
+    if text_message=="" or text_message==None or len(text_message)<5:
+        flash("Lütfen yorumunuzu gözden geçiriniz")
+        return redirect(request.referrer)
+    CommentManager.addCommentByProductIdAndCustomerId(product_id,customerId[0],text_message)
+    return redirect(request.referrer)
 
 
 if __name__=="__main__":
