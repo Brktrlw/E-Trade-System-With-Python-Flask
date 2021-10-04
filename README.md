@@ -81,7 +81,7 @@ Programın arayüzünden örnek görseller.
 <img src="images/Untitled3.png"></img><br>
 <img src="images/Untitled4.png"></img><br>
 ## lisans
-Bu yazılım GNU GENERAL PUBLIC Lisansı ile korunmaktadır. Daha fazla bilgi için `LICENSE` dosyasını okuyunuz.
+Bu yazılım MIT Lisansı ile korunmaktadır. Daha fazla bilgi için `LICENSE` dosyasını okuyunuz.
 <br>Copyright (c) 2021 
 
 
