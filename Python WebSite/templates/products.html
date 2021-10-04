@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if catId==1 %}
+    <title>Telefon</title>
+    {% elif catId==2 %}
+    <title>Bilgisayar</title>
+    {% elif catId==3 %}
+    <title>Erkek Giyim</title>
+    {% elif catId==4 %}
+    <title>Kırtasiye</title>
+    {% elif catId==5 %}
+    <title>Kadın Giyim</title>
+    {% endif %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/productsCss.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">   
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/util.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+    {% include "includes/navbar.html" %}<br><br><br>
+
+
+
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+       <div class="">
+		<div class="">
+			<div class="alert alert-success shadow my-3" role="alert" style="border-radius: 3px">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true" style="color:#155724">&times;</span>
+				</button>
+				<div class="text-center">
+					<svg width="3em" height="3em" viewBox="0 0 16 16" class="m-1 bi bi-shield-fill-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+					</svg>
+				</div>
+				<p style="font-size:18px" class="mb-0 font-weight-light text-center"><b class="mr-1"></b>{{message}}</p>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+    <script>window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 2000);</script>
+
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+
+<br><br>
+    {%for i in range(0, lenOfList)%}
+
+    
+    <!--Ürün bilgileri Buradan başlıyor-->
+    <div class="container mt-5 mb-5 ">
+        <div class="d-flex justify-content-center row ">
+            <div class="col-md-10 shadow p-9 mb-0 rounded ">
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{productsList[i][3]}}"></div>
+                    <div class="col-md-6 mt-1">
+
+                        <h5>{{productsList[i][1]}}</h5>
+                        <div class="d-flex flex-row">
+                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{productsList[i][7]}}</span>
+                        </div>
+                        {% if catId==None %}
+                        <div class="mt-1 mb-1 spec-1"><span>Marka: {{productsList[i][10]}}</span><span class="dot"></div>
+                        {% else %}
+                        <div class="mt-1 mb-1 spec-1"><span>Marka: {{productsList[i][9]}}</span><span class="dot"></div>
+                        {% endif %}
+                            {% if catId==None %}
+                            <div class="mt-1 mb-1 spec-1">Kategori: {{productsList[i][9]}}</span>
+                            {% else %}
+                            <div class="mt-1 mb-1 spec-1">Kategori:</span>
+                            {% endif %}
+                            {% if catId==3 %}
+                            <span>Erkek Giyim</span>
+                            {% elif catId==5 %}
+                            <span>Kadın Giyim</span>
+                            {% elif catId==4 %}
+                            <span>Kırtasiye</span>
+                            {% elif catId==1 %}
+                            <span>Telefonlar</span>
+                                {% elif catId==2 %}
+                                                            <span>Bilgisayar</span>
+
+                            {% endif %}
+
+                            <span class="dot"></span><span><br></span></div>
+                        <p class="text-justify text-truncate para mb-0">{{productsList[i][8]}}<br><br></p>
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">{{productsList[i][2]}} ₺</h4><span class="strike-text">{{productsList[i][2]+20}} ₺</span>
+                        </div>
+                        {% if productsList[i][10]==1 %}
+                        <h6 class="text-success">Ücretsiz Kargo</h6>
+                        {% else %}
+                        <h6 class="text-success"></h6>
+                        {% endif %}<br>
+                                <div class="d-flex flex-column">
+
+                                <a href="/Product/{{productsList[i][0]}}" class="btn btn-outline-info btn-sm"><i class="fa fa-list-alt"></i> Detaylar</a>
+
+                                    </div>
+
+                            <form action="{{url_for('addProductToCart')}}" method="POST">
+                            <input type="hidden" name='product_id' value="{{productsList[i][0]}}">
+                                <div class="d-flex flex-column">
+                            <button class="btn btn-outline-primary btn-sm mt-2" type="submit"><i class="fa fa-cart-plus"></i> Sepete Ekle</button>
+                                </div>
+                            </form>
+                            <form action="{{url_for('addFavoriteToFavorites')}}" method="POST">
+                                <div class="d-flex flex-column">
+                            <input type="hidden" name='product_id' value="{{productsList[i][0]}}">
+                            <button class="btn btn-outline-danger btn-sm mt-2" type="submit"><i class="fa fa-heart"></i> Favorilere Ekle</button>
+                                </div>
+                            </form>
+
+                    </div>
+                </div>
+               
+        </div>
+    </div>
+ </div>
+ </form>
+
+ {% endfor %}
+        </div>
+
+    <!--Ürün bilgileri Burada bitiyor-->
+
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

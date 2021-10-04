@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/sepetim.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+{% include "includes/navbar.html" %}
+
+<br><br>
+
+<div class="container mt-5 mb-5">
+        {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+    <div class="alertDiv">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        </div>
+    <script>window.setTimeout(function() {$(".alertDiv").fadeTo(500, 0).slideUp(500, function(){$(this).remove();});}, 2000);</script>
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+    <div class="d-flex justify-content-center row">
+
+
+        <div class="col-md-10">
+
+
+
+        <div class="alert alert-success shadow p-3 mb-0 rounded ">
+  <h4 class="alert-heading text-center"><h3 class="text-center">Favori Ürünlerim</h3></h4>
+  <p></p>
+  <hr>
+  <p class="mb-1 text-center shadow-lg p-3 mb-0 bg-white rounded">Sipariş vermeden önce ürünlerinizi favorilerinize ekleyebilirsiniz.</p>
+</div>
+            <br>
+
+        <div class="alert alert-danger shadow p-5 mb-0 rounded">
+            {% if lenFavoriteProducts>0%}
+                {%for i in range(0, lenFavoriteProducts)%}
+        <!-- ÜRÜN BİLGİLERİNİN BAŞLANGICI -->
+            <div class="row p-2 bg-white border rounded mt-2 shadow p-4 mb-0 rounded">
+                <div class="col-md-3 mt-1 "><img class="img-fluid img-responsive rounded product-image" src="{{favoriteProducts[i][2]}}"></div>
+                <div class="col-md-6 mt-1 ">
+                    <h5>{{favoriteProducts[i][0]}}</h5>
+                    <div class="d-flex flex-row ">
+                        <div class="ratings mr-2 "><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{favoriteProducts[i][7]}}</span>
+                    </div>
+                    <div class="mt-1 mb-1 spec-1"><span>{{favoriteProducts[i][6 ]}}</span><span class="dot"></span><span></span><span class="dot"></span><span><br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span></span><span class="dot"></span><span>{{favoriteProducts[i][4]}}</span><span class="dot"></span><span><br></span></div>
+                    <p class="text-justify text-truncate para mb-0"><br><br></p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">{{favoriteProducts[i][1]}} ₺</h4><span class="strike-text">----</span>
+                    </div>
+                    {% if favoriteProducts[i][9]==0%}
+                    <h6 class="text-success"></h6>
+                    {% else %}
+                    <h6 class="text-success">Ücretsiz Kargo</h6>
+                    {%endif%}
+                    <div class="d-flex flex-column mt-4">
+                        <form action="" method="POST">
+                                <div class="d-flex flex-column">
+                            <a class="btn btn-outline-info btn-sm" type="button" href="/Product/{{favoriteProducts[i][5]}}"><i class="fa fa-list-alt"></i> Detaylar</a>
+                                    </div>
+                            </form>
+                            <form action="{{url_for('addProductToCart')}}" method="POST">
+                            <input type="hidden" name='product_id' value="{{favoriteProducts[i][5]}}">
+                                <div class="d-flex flex-column">
+                            <button class="btn btn-outline-primary btn-sm mt-2" type="submit"><i class="fa fa-cart-plus"></i> Sepete Ekle</button>
+                                </div>
+                            </form>
+
+                            <form action="{{url_for('deleteFavoriteProduct')}}" method="POST">
+                                <div class="d-flex flex-column">
+                            <input type="hidden" name='product_id' value="{{favoriteProducts[i][5]}}">
+                            <button class="btn btn-outline-danger btn-sm mt-2" type="submit"><i class="fa fa-heart"></i> Favorilerden Sil</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- ÜRÜN BİLGİLERİNİN BİTİŞİ -->
+            {%endfor%}
+            </div>
+          {% else %}
+            <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Favorilerinizde Hiç Ürün Yok</h4><br>
+  <p>Ürün eklemek için alışverişe devam ediniz.</p>
+  <hr>
+  <p class="mb-0"><a href="{{url_for('getResponseHomePageIndex')}}">Alışverişe Devam Et</a></p>
+</div>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+    </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

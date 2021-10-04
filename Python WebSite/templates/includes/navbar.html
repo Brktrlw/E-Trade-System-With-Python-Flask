@@ -1,0 +1,128 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">Siçek Mepeti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+     
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-outline-primary" href="/"><i class="icon-home" aria-hidden="true"></i> Ana Sayfa</a>
+          &nbsp;
+        </li>
+
+
+        <li class="nav-item active">
+
+        <div class="btn-group">
+
+          <button type="button" class="btn btn-outline-success btn-danger dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="icon-list-ul" aria-hidden="true"></i> Kategoriler
+          </button>
+&nbsp;&nbsp;
+          <div class="dropdown-menu">
+            <a class="btn btn-outline-info btn-block" href="/Products/Erkek-Giyim">
+              <i class="icon-male" aria-hidden="true"></i> Erkek Giyim</a>
+
+
+
+
+
+            <a class="btn btn-outline-primary btn-block" href="/Products/Kadin-Giyim">
+              <i class="icon-female" aria-hidden="true"></i> Kadın Giyim</a>
+            <a class="btn btn-outline-dark btn-block" href="/Products/Kirtasiye">
+              <i class="icon-pencil" aria-hidden="true"></i> Kırtasiye</a>
+            <a class="btn btn-outline-success btn-block" href="/Products/Telefon">
+              <i class="icon-mobile-phone" aria-hidden="true"></i> Telefon</a>
+            <a class="btn btn-outline-danger btn-block" href="/Products/Bilgisayar">
+              <i class="icon-laptop" aria-hidden="true"></i> Bilgisayar</a>
+          </div>
+          
+          
+        
+        <li class="nav-item active">
+          <a class="btn btn-outline-info" href="/Products/"><i class="icon-inbox" aria-hidden="true"></i> Tüm Ürünler</a
+        </li>
+</li>
+&nbsp;&nbsp;
+
+<form class="form-inline my-2 my-lg-0" action="/Search" method="POST">
+      <input class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search" name="searchkeyword">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="icon-search" aria-hidden="true"></i> Ürün Ara</button>
+    </form>
+    </ul>&nbsp;&nbsp;
+
+      
+    
+     
+
+        
+        
+      
+
+  {% if session['logged_in']==True %}
+
+    &nbsp;&nbsp;
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item active">
+        <a class="btn btn-outline-success" href="/Sepetim"><i class="icon-shopping-cart" aria-hidden="true"></i> Sepetim</a>
+    </ul>
+    &nbsp;&nbsp;
+    <div class="btn-group">
+
+      <button type="button" class="btn btn-outline-primary btn-danger dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="icon-user" aria-hidden="true"></i> Hesabım
+      </button>
+&nbsp;&nbsp;
+      <div class="dropdown-menu">
+        <a class="btn btn-outline-success btn-block" href="/Siparislerim">
+          <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Siparişlerim</a>
+        <a class="btn btn-outline-primary btn-block" href="/Sepetim">
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i> Sepetim</a>
+          <a class="btn btn-outline-info btn-block" href="/Favorilerim">
+          <i class="fa fa-heart" aria-hidden="true"></i> Favorilerim</a>
+        <a class="btn btn-outline-dark btn-block" href="/Profil">
+          <i class="fa fa-sliders" aria-hidden="true"></i> Profilim</a>
+            <a class="btn btn-outline-danger btn-block" href="/logout">
+          <i class="icon-signout" aria-hidden="true"></i> Çıkış Yap</a>
+      </div>
+
+
+
+
+
+    {% else %}
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item active">
+        <a class="btn btn-outline-warning" href="/Login"><i class="icon-signin  " aria-hidden="true"></i> Giriş Yap</a>
+    </ul>
+    &nbsp;&nbsp;
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item active">
+        <a class="btn btn-outline-info" href="/Register"><i class="icon-plus-sign" aria-hidden="true"></i> Kayıt Ol</a>
+
+    </ul>
+
+
+    
+   
+
+  {% endif %}
+
+     
+
+
+
+
+      
+
+
+      &nbsp;
+
+
+      </ul>
+
+    </div>
+
+</nav>

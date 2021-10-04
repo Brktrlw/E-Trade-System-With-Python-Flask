@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+  <style>body{
+    color: #8e9194;
+    background-color: #f4f6f9;
+}
+.avatar-xl img {
+    width: 110px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.text-muted {
+    color: #aeb0b4 !important;
+}
+.text-muted {
+    font-weight: 300;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4d5154;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #eef0f3;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}</style>
+</head>
+
+<body>
+	{% include "includes/navbar.html" %}
+    <br><br><br>
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+        <h2 class="h3 mb-4 page-title">Profilim</h2>
+        <div class="my-4">
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Profil</a>
+                </li>
+            </ul>
+            <form>
+                <div class="row mt-5 align-items-center">
+                    <div class="col-md-3 text-center mb-5">
+                        <div class="avatar avatar-xl">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="..." class="avatar-img rounded-circle" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row align-items-center">
+                            <div class="col-md-7">
+                                <h4 class="mb-1">Hoş Geldiniz {{customerData[1]}} {{customerData[5]}}</h4>
+                                <p class="small mb-3"><span class="badge badge-dark">Müşteri</span></p>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-7">
+                                <p class="text-muted">
+
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4" />
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstname">Ad</label>
+                        <input type="text" id="firstname" class="form-control" placeholder="Brown" value="{{customerData[1]}}" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Soyad</label>
+                        <input type="text" id="lastname" class="form-control" placeholder="Asher" value="{{customerData[5]}}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me" value="{{customerData[3]}}"/>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress5">Adres</label>
+                    <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCompany5">Company</label>
+                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState5">State</label>
+                        <select id="inputState5" class="form-control">
+                            <option selected="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip5">Zip</label>
+                        <input type="text" class="form-control" id="inputZip5" placeholder="98232" />
+                    </div>
+                </div>
+                <hr class="my-4" />
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputPassword4">Old Password</label>
+                            <input type="password" class="form-control" id="inputPassword5" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5">New Password</label>
+                            <input type="password" class="form-control" id="inputPassword5" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword6">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputPassword6" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-2">Password requirements</p>
+                        <p class="small text-muted mb-2">To create a new password, you have to meet all of the following requirements:</p>
+                        <ul class="small text-muted pl-4 mb-0">
+                            <li>Minimum 8 character</li>
+                            <li>At least one special character</li>
+                            <li>At least one number</li>
+                            <li>Can’t be the same as a previous password</li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Change</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
