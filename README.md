@@ -37,10 +37,7 @@
       </ul>
     </li>
     <li>
-      <a href="#Başlangıç">Başlangıç</a>
-      <ul>
-        <li><a href="#Kurulum">Kurulum</a></li>
-      </ul>
+      <a href="#Başlangıç">Başlangıç</a> 
     </li>
     <li><a href="#Kullanım">Kullanış</a></li>
     <li><a href="#Desteklediği-İşletim-Sistemleri">Desteklediği İşletim Sistemleri</a>
@@ -71,20 +68,6 @@
 
 Kurulumda Windows işletim sistemleri için sadece setup dosyasını indirip kurmanız yeterli olacaktır.
 
-
-### Kurulum
-1. Adım
-`Setup Dosyasını indiriniz.`
-2. Adım
-`Bu tarz bir uyarı ile karşılaşırsanız "Ek Bilgi" butonuna tıklayıp "Yine de Çalıştır" butonuna basınız.`<br>
-<img src="images/image.jpg"></img><br>
-3. Adım
-`Lisans koşullarını kabul edip "Sonraki" butonuna basınız`
-<img src="images/lisans.PNG"></img><br>
-4. Adım
-`Klasik program kurulum dosyası gibi ileri butonuna tıklayarak devam ediniz.`<br>
-<img src="images/lisans2.PNG"></img><br>
-<img src="images/lisans3.PNG"></img><br>
 
 ## Kullanım
 
