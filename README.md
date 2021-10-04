@@ -54,7 +54,7 @@
 
 `BrktrLawliet`,
 `brktrl@protonmail.ch`
-`Word Of World`
+`E Trade System`
 
 
 ### Ne-İle-Geliştirildi
