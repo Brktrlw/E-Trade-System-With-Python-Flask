@@ -151,7 +151,6 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
             cursor = connection.cursor()
             cursor.execute(f"SELECT CustomerName FROM Customers WHERE CustomerUserName='{customerUserName}' and CustomerPassword='{customerPassword}'")
             customerData = cursor.fetchone()
-            print(customerData)
             if customerData == None:
                 return False
             else:
@@ -322,7 +321,6 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
             cursor=connection.cursor()
             cursor.execute(f"SELECT * FROM CommentLikes where customerId={customerId} and commentId='{commentId}'")
             isLike=cursor.fetchall()
-            print(isLike)
             return isLike
         except Exception as e:
             DatabaseLoggers.databaseLogger(e)

@@ -1,5 +1,5 @@
 
-
+"""
 from flask import Flask,render_template,flash,redirect,url_for,session,logging,request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -30,6 +30,12 @@ if __name__=="__main__":
 
 #date=str(day)+"/"+str(month)+"/"+str(year)+"-"+str(hour)+":"+str(minute)
 #print(date)
+"""
+
+
+
+
+
 
 
 

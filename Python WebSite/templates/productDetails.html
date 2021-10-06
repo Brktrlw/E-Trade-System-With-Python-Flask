@@ -210,6 +210,7 @@
 
 {% endif %}
     {% if session["username"] %}
+
 <div class="container my-0 py-5 text-dark">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-6">
@@ -231,12 +232,14 @@
 
                 </div>
                 <div class="">
-                     <form action="{{url_for('addCommentByProductId')}}" method="POST">
+
+                     <form action="{{url_for('addCommentByProductId')}}" method="POST" id="addcommentdeneme">
                          <textarea class="form-control" name="text_message" rows="4" required></textarea><br>
                         <input type="hidden" value="{{productDetails[0]}}" name="product_id">
-                        <button type="submit" class="btn btn-outline-success btn-block">
+                            <button type="submit" class="asdfg btn btn-outline-success btn-block">
                              <i class="fa fa-paper-plane" aria-hidden="true" ></i> Gönder</button>
                      </form>
+
 
 
 
@@ -253,11 +256,11 @@
     <br>
     <div class="row d-flex justify-content-center">
      <div class="col-md-4 col-lg-6">
+
     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
       <div class="card-body p-4">
-
           {% if comments==[] or comments==None%}
-          <div class="alert alert-danger">Bu ürüne daha önce yorum yapılmamış.</div>
+          <div class="alert alert-danger">Bu ürüne daha önce yorum yapılmamış.</div></div></div>
           {% else %}
          {%for i in range(0, uzunluk)%}
 
@@ -275,11 +278,20 @@
               </div>
               <div class="d-flex flex-row align-items-center">
 
-                   <form action="{{url_for('increaseLikeByCommentId')}}" method="post">
+                  <form action="{{url_for('increaseLikeByCommentId')}}" method="post">
                   <input type="hidden" value="{{comments[i][0]}}" name="comment_id">
-                    <button type="submit"><i class="fa fa-thumbs-up" aria-hidden="true" style="color:green"></i></button>
+                    <button type="submit"><i class="fa fa-thumbs-up" aria-hidden="true" style="color:green">&nbsp;</i></button>
                        <p class="small text-muted mb-0">{{comments[i][4]}}</p></form>
-                  &nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+
 
                    <form action="{{url_for('increaseDislikeByCommentId')}}" method="post">
                   <input type="hidden" value="{{comments[i][0]}}" name="comment_id">

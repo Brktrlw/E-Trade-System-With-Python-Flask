@@ -77,6 +77,8 @@ def getProductListWithCategorie(categorieName:str):
 @app.route("/Product/<string:productId>")
 def getProductDetailsPage(productId):
     productDetails=ProductManager.getProductDetails(productId)
+    if productDetails==None:
+        return render_template("errorpage.html")
     comments=CommentManager.getCommentsByProductId(productId)
     return render_template("productDetails.html",productDetails=productDetails,comments=comments,uzunluk=len(comments))
 
@@ -85,8 +87,8 @@ def getProductDetailsPage(productId):
 def increaseLikeByCommentId():
     customerId = BaseDatabaseManager.findCustomerIdFromCustomerUserName(session["username"])
     commentId= request.form.get('comment_id')
-
     isLike=CommentManager.isLikeComment(customerId[0],commentId)
+
     if isLike==[]:
         CommentManager.increaseCommentLikeByCommentId(commentId,customerId[0])
     else:
