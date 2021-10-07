@@ -261,3 +261,4 @@ no such column: None 2021-10-06 14:55:06.050978
 no such column: None 2021-10-06 14:55:06.079900
 no such column: None 2021-10-06 14:55:06.097851
 no such column: None 2021-10-06 14:55:06.109819
+int() argument must be a string, a bytes-like object or a number, not 'NoneType' 2021-10-07 11:57:58.571794
