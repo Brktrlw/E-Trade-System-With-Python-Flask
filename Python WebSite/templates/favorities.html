@@ -57,7 +57,7 @@
 
         <div class="alert alert-danger shadow p-5 mb-0 rounded">
             {% if lenFavoriteProducts>0%}
-                {%for i in range(0, lenFavoriteProducts)%}
+                {% for i in range(0, lenFavoriteProducts) %}
         <!-- ÜRÜN BİLGİLERİNİN BAŞLANGICI -->
             <div class="row p-2 bg-white border rounded mt-2 shadow p-4 mb-0 rounded">
                 <div class="col-md-3 mt-1 "><img class="img-fluid img-responsive rounded product-image" src="{{favoriteProducts[i][2]}}"></div>
