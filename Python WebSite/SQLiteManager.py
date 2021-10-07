@@ -410,7 +410,7 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
         try:
             connection = sqlite3.connect("database.db")
             cursor = connection.cursor()
-            cursor.execute(f"SELECT     * FROM Basket where CustomerId='{customerId}' and productId='{productId}'")
+            cursor.execute(f"SELECT * FROM Basket where CustomerId='{customerId}' and productId='{productId}'")
             basketData = cursor.fetchone()
             if basketData == None:
                 cursor.execute(

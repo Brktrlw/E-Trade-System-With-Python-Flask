@@ -285,7 +285,8 @@ def setOrder():
     maxOrderId=maxOrderId[0]
     for i in range(0,len(basket)):
        BaseDatabaseManager.addOrderList(maxOrderId,basket[i][6],basket[i][2])
-    return "işlem başarılı"
+    flash("Siparişiniz başarıyla alınmıştır.")
+    return render_template("paymentsuccess.html")
 
 @app.route("/Search",methods=["GET","POST"])
 def searchProductByName():
