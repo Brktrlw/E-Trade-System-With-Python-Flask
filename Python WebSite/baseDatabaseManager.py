@@ -8,6 +8,15 @@ class BaseDatabaseManager():
         BaseDatabaseManager.databaseType.increaseProductAmountFromCart(customerId, productId)
 
     @staticmethod
+    def getOrderItemsByOrderId(orderId):
+        orderItemDetails=BaseDatabaseManager.databaseType.getOrderItemsByOrderId(orderId)
+        return orderItemDetails
+    @staticmethod
+    def getOrderByOrderId(orderId):
+        orderDetails=BaseDatabaseManager.databaseType.getOrderByOrderId(orderId)
+        return orderDetails
+
+    @staticmethod
     def getBasket(customerId:int):  # Müşteri ID'sine göre sepetteki ürünleri "/Sepetim" sayfasında listelediğimiz method
         result=BaseDatabaseManager.databaseType.getBasket(customerId)
         return result

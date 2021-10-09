@@ -319,7 +319,13 @@ def getSiparislerimPage():
 @app.route("/Siparislerim/<string:id>")
 @login_required
 def getOrderDetailsPage(id):
-    return render_template("orderdetails.html",username=session["username"])
+    customerId = BaseDatabaseManager.findCustomerIdFromCustomerUserName(session["username"])
+    orderDetails=BaseDatabaseManager.getOrderByOrderId(id)
+    orderItemDetail=BaseDatabaseManager.getOrderItemsByOrderId(id)
+    print(orderDetails)
+
+
+    return render_template("orderdetails.html",username=session["username"],orderDetails=orderDetails,orderItemDetail=orderItemDetail,lenoflist=len(orderItemDetail))
 
 
 @app.route("/addComment",methods=["POST"])

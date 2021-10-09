@@ -197,7 +197,7 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
         try:
             connection=sqlite3.connect("database.db")
             cursor=connection.cursor()
-            cursor.execute(f"SELECT * FROM Orders where customerId='{customerId}'")
+            cursor.execute(f"SELECT * FROM Orders where customerId='{customerId}' ORDER BY  OrderDate DESC")
             orders=cursor.fetchall()
             return orders
         except Exception as e:
@@ -206,7 +206,33 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
         finally:
             connection.close()
 
+    @staticmethod
+    def getOrderByOrderId(orderId):
+        try:
+            connection=sqlite3.connect("database.db")
+            cursor=connection.cursor()
+            cursor.execute(f"SELECT * FROM Orders where OrderId={orderId}")
+            orderDetails=cursor.fetchall()
+            return orderDetails
+        except Exception as e:
+            DatabaseLoggers.databaseLogger(e)
+            FileErrorLogger.FileLogger(e)
+        finally:
+            connection.close()
 
+    @staticmethod
+    def getOrderItemsByOrderId(orderId):
+        try:
+            connection=sqlite3.connect("database.db")
+            cursor=connection.cursor()
+            cursor.execute(f"SELECT ProductName,ProductAmount,ProductImageUrl,ProductPrice FROM Order_Items INNER JOIN Products ON Products.ProductId=Order_Items.ProductId where OrderId={orderId}")
+            orderItemDetails=cursor.fetchall()
+            return orderItemDetails
+        except Exception as e:
+            DatabaseLoggers.databaseLogger(e)
+            FileErrorLogger.FileLogger(e)
+        finally:
+            connection.close()
     # Kullanıcı kayıt olurken daha önce aynı kullanıcı adını alan biri var mı diye kontrol eder.
     @staticmethod
     def isCustomerUserName(customerUserName):

@@ -43,3 +43,19 @@ if __name__=="__main__":
 
 
 
+
+import requests
+response= requests.get("http://193.255.61.119")
+print(response.status_code)
+
+
+
+
+
+
+
+
+
+
+
+
