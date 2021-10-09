@@ -322,7 +322,6 @@ def getOrderDetailsPage(id):
     customerId = BaseDatabaseManager.findCustomerIdFromCustomerUserName(session["username"])
     orderDetails=BaseDatabaseManager.getOrderByOrderId(id)
     orderItemDetail=BaseDatabaseManager.getOrderItemsByOrderId(id)
-    
     return render_template("orderdetails.html",username=session["username"],orderDetails=orderDetails,orderItemDetail=orderItemDetail,lenoflist=len(orderItemDetail))
 
 
