@@ -54,6 +54,7 @@ def getResponseImagesIndex():
         sepettekiUrunler=False
         return render_template("sepetim.html",sepettekiUrunler=sepettekiUrunler)
 
+
 @app.route("/Products/<string:categorieName>") # Kategorileri Seçerken çalışan Method
 def getProductListWithCategorie(categorieName:str):
     catId=None
