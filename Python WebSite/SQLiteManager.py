@@ -267,8 +267,6 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
             DatabaseLoggers.databaseLogger(e)
             FileErrorLogger.FileLogger(e)
 
-
-
     @staticmethod
     def getFavoriteProducts(customerId):
         try:

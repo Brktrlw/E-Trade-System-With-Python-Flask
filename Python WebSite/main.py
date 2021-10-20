@@ -34,8 +34,6 @@ def login_required(f):
             return redirect(url_for("getResponseHomePageIndex"))
     return decorated_function
 
-
-
 @app.route("/") # Ana sayfa açılırken dönen response
 def getResponseHomePageIndex():
     return render_template("index.html")
