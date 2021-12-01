@@ -1,4 +1,6 @@
 import sqlite3
+
+import fileErrorLogger
 from fileErrorLogger import FileErrorLogger
 from DatabaseLogger import DatabaseLoggers
 from baseDatabaseManager import BaseDatabaseManager
@@ -547,5 +549,10 @@ class SQLiteDataBaseManager(BaseDatabaseManager):
             FileErrorLogger.FileLogger(e)
         finally:
             connection.close()
+
+
+
+
+
 
 
